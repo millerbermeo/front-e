@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
