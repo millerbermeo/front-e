@@ -12,7 +12,14 @@ module.exports = {
                 action: '#43A047',
                 text: '#212121',
             },
+             transformOrigin: {
+            'center': 'center',
+      },
         },
     },
+     safelist: [
+    "rotate-y-180", "hover:rotate-y-180",
+    "perspective", "preserve-3d", "backface-hidden"
+  ],
 
 };

@@ -2,8 +2,10 @@ import Button from '../../components/Button'
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
 import OnSale from './OnSale'
+import { useNavigate } from 'react-router-dom'
 
 interface CardProductoProps {
+    id: number,
     nombre: string
     precio: number
     imagen_url: string
@@ -11,13 +13,18 @@ interface CardProductoProps {
 }
 
 const CardProducto: React.FC<CardProductoProps> = ({
+    id,
     nombre,
     precio,
     imagen_url,
     valoracion,
+
 }) => {
+
+    const navigate = useNavigate()
+
     return (
-        <div className="card min-w-52 w-full bg-base-100 shadow-md hover:shadow-lg transition">
+        <div onClick={()=> navigate(`/producto/${id}`)} className="card min-w-52 w-full bg-base-100 shadow-md hover:shadow-lg transition">
             <OnSale porcentaje='-20%'/>
             <figure className="px-4 pt-4">
                 <img

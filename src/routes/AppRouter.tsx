@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom
 import { useAuthStore } from '../store/authStore'
 import MainLayout from '../layouts/MainLayout';
 const Home = lazy(() => import('../pages/Home'));
-const Login = lazy(() => import('../app/auth/Login'));
+const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../app/dashboard/Dashboard'));
 const Producto = lazy(() => import('../pages/Producto'));
 const Productos = lazy(() => import('../pages/Productos'));

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Topbar: React.FC = () => {
     return (
-        <div className='w-full py-2.5 bg-[#08B69F] text-white'>
+        <div className='w-full py-2.5 bg-[#009688] text-white'>
             <div className='container mx-auto flex justify-between items-cente'>
                 <div>
                     <span>

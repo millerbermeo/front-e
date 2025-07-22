@@ -1,0 +1,6 @@
+npm run dev -- --host 0.0.0.0 --port 5173
+
+Local:   http://82.25.95.127:5173/ 
+Network: http://82.25.95.127:5173/
+
+pm2 start "npm run dev" --name front-dev
