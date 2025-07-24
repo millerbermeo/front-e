@@ -1,9 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { showAlert } from '../../utils/alertService'
 
-// Registrar una nuevo producto
-export const useRegisterProduct = () => {
+// productsServices.ts
+type UseRegisterProductOptions = {
+    onSuccess?: () => void
+}
 
+export const useRegisterProduct = ({ onSuccess }: UseRegisterProductOptions = {}) => {
     const queryClient = useQueryClient();
 
     return useMutation({
@@ -19,13 +23,36 @@ export const useRegisterProduct = () => {
             );
             return data;
         },
-        onSuccess: async (): Promise<void> => {
-            // await queryClient.invalidateQueries({ queryKey: ['re'] });
+
+        onSuccess: async () => {
+            await showAlert({
+                title: "¡Producto registrado!",
+                text: "El producto fue creado correctamente.",
+                icon: "success",
+                confirmButtonText: "Aceptar",
+            });
+
+            onSuccess?.(); // Llama al callback pasado desde el componente
+
+            // await queryClient.invalidateQueries({ queryKey: ['products'] });
         },
-        onError: (error: any) => {
-            const errorMessage: string[] | string = error.response?.data?.message || "Error al registrar el prodcuto";
-            const messagesArray: string[] = Array.isArray(errorMessage) ? errorMessage : [errorMessage];
-            messagesArray.forEach(msg => console.log(msg, "error"));
+
+        onError: async (error: any) => {
+            const errorMessage: string[] | string =
+                error.response?.data?.message || "Error al registrar el producto";
+
+            const messagesArray: string[] = Array.isArray(errorMessage)
+                ? errorMessage
+                : [errorMessage];
+
+            const combinedMessage = messagesArray.join('\n');
+
+            await showAlert({
+                title: "Error",
+                text: combinedMessage,
+                icon: "error",
+                confirmButtonText: "Cerrar",
+            });
         },
     });
-};
+}
