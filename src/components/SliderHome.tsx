@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import Button from './Button'
 import ProgressCircle from './ProgressCircle'
 
 const contentSlider = [
@@ -14,7 +13,7 @@ const contentSlider = [
 
             {/* COLUMNA IZQUIERDA */}
             <div className="w-full max-w-[50%] flex flex-col gap-6">
-                <h1 className="text-5xl uppercase text-[#08B69F] font-bold">¡Tienda online!</h1>
+                <h1 className="text-6xl uppercase text-[#08B69F] font-bold">¡Tienda online!</h1>
 
                 <p className="text-5xl text-[#272343e0] font-extrabold leading-16 text-balance">
                     Tecnología de punta al mejor precio, ¡todos los días!

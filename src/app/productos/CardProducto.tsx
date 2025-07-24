@@ -1,4 +1,4 @@
-import Button from '../../components/Button'
+import Button from '../../shared/Button'
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
 import OnSale from './OnSale'

@@ -7,7 +7,7 @@ const Login = lazy(() => import('../pages/Login'));
 const Dashboard = lazy(() => import('../app/dashboard/Dashboard'));
 const Producto = lazy(() => import('../pages/Producto'));
 const Productos = lazy(() => import('../pages/Productos'));
-
+const AdminProductos = lazy(() => import('../pages/admin/AdminProductos'));
 
 
 const PrivateRoute = () => {
@@ -30,6 +30,7 @@ const AppRouter: React.FC = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/productos' element={<Productos />} />
                     <Route path='/producto/:id' element={<Producto />} />
+                    <Route path='/admin-productos' element={<AdminProductos />} />
                 </Route>
                 {/* RUTAS PRIVADAS */}
                 <Route element={<PrivateRoute />}>

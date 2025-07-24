@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Button from '../shared/Button'
 import { BowArrow, Car, Contact, User } from 'lucide-react'
 
 const Nav: React.FC = () => {

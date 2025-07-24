@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Button from './Button';
+import Button from '../shared/Button';
 import clsx from 'clsx';
 import { CategoryMenu } from '../utils/arrays';
 import { AlignJustify } from 'lucide-react';

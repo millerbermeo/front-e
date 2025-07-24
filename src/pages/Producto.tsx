@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Heart, Minus, Plus, Share, Star } from 'lucide-react'
-import Button from '../components/Button'
+import Button from '../shared/Button'
 
 // Simulando traer el contenido por ID
 const contentIma = [

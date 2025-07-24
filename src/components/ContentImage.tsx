@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Button from '../shared/Button'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { contentIma } from '../utils/arrays'

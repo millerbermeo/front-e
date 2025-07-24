@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { routesNavbar } from '../utils/arrays'
 import CategoriesButton from './CategoriesButton'
-import Button from './Button'
+import Button from '../shared/Button'
 
 interface MenuItems {
     id: number
