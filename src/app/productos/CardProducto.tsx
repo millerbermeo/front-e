@@ -3,21 +3,15 @@ import { ShoppingCart } from 'lucide-react'
 import React from 'react'
 import OnSale from './OnSale'
 import { useNavigate } from 'react-router-dom'
+import {Product} from "../../types/products";
 
-interface CardProductoProps {
-    id: number,
-    nombre: string
-    precio: number
-    imagen_url: string
-    valoracion: string // puede ser un string como '★★★★★' o valor numérico si prefieres
-}
 
-const CardProducto: React.FC<CardProductoProps> = ({
+
+const CardProducto: React.FC<Product> = ({
     id,
-    nombre,
-    precio,
-    imagen_url,
-    valoracion,
+    name,
+    price,
+    image_url,
 
 }) => {
 
@@ -28,13 +22,13 @@ const CardProducto: React.FC<CardProductoProps> = ({
             <OnSale porcentaje='-20%'/>
             <figure className="px-4 pt-4">
                 <img
-                    src={imagen_url}
-                    alt={nombre}
+                    src={image_url}
+                    alt={name}
                     className="rounded-xl h-40 object-contain"
                 />
             </figure>
             <div className="card-body items-start p-4 space-y-1">
-                <h2 className="card-title text-sm leading-tight line-clamp-2">{nombre}</h2>
+                <h2 className="card-title text-sm leading-tight line-clamp-2">{name}</h2>
 
                 {/* Valoración */}
                 <div className="rating rating-sm">
@@ -46,7 +40,7 @@ const CardProducto: React.FC<CardProductoProps> = ({
                                 <input
                                     key={i}
                                     type="radio"
-                                    name={`rating-${nombre}`}
+                                    name={`rating-${name}`}
                                     className="mask mask-star-2 bg-gray-300"
                                     disabled
                                 />
@@ -55,7 +49,7 @@ const CardProducto: React.FC<CardProductoProps> = ({
                 </div>
 
                 <p className="text-md font-semibold text-primary">
-                    ${precio.toFixed(2)} US$
+                    ${price} US$
                 </p>
 
                 <div className="card-actions w-full justify-end">

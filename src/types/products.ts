@@ -9,5 +9,9 @@ export interface Products {
     status?: string
     extra_attr?: any
     image: FileList; // o File, dependiendo de cómo lo manejes
+}
 
+export interface Product extends Products {
+    id?: number;
+    image_url?: string;
 }

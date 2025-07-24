@@ -1,6 +1,7 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import axios from "axios";
 import { showAlert } from '../../utils/alertService'
+import {Products} from "../../types/products";
 
 // productsServices.ts
 type UseRegisterProductOptions = {
@@ -34,7 +35,7 @@ export const useRegisterProduct = ({ onSuccess }: UseRegisterProductOptions = {}
 
             onSuccess?.(); // Llama al callback pasado desde el componente
 
-            // await queryClient.invalidateQueries({ queryKey: ['products'] });
+            await queryClient.invalidateQueries({ queryKey: ['products'] });
         },
 
         onError: async (error: any) => {
@@ -55,4 +56,17 @@ export const useRegisterProduct = ({ onSuccess }: UseRegisterProductOptions = {}
             });
         },
     });
+}
+
+
+
+export  const useProducts = () => {
+    return useQuery<Products[]> ({
+        queryKey: ["products"],
+        queryFn: async () => {
+            const {data} = await axios.get<Products[]>('http://127.0.0.1:8000/api/v1/products/')
+            return data
+        },
+        staleTime: 1000 * 60 * 10,
+    })
 }
